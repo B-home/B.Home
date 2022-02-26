@@ -25,7 +25,8 @@
             console.log('android');
             console.log(postData);
             try {
-                Android.postMessageToAndroid(postData);
+                var str = JSON.stringify(postData);
+                Android.postMessageToAndroid(str);
             } catch (err) {
                 console.log(err); // a is not defined
             }
