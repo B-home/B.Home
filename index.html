@@ -15,12 +15,20 @@
         function postMessageToiOS(postData) {
             console.log('ios');
             console.log(postData);
-            window.webkit.messageHandlers.callBackHandler.postMessage(postData);
+            try {
+                window.webkit.messageHandlers.callBackHandler.postMessage(postData);
+            } catch (err) {
+                console.log(err); // a is not defined
+            }
         }
         function postMessageToAndroid(postData) {
             console.log('android');
             console.log(postData);
-            Android.postMessageToAndroid(postData);
+            try {
+                Android.postMessageToAndroid(postData);
+            } catch (err) {
+                console.log(err); // a is not defined
+            }
         }
         var element_layer = document.getElementById('layer');
 
